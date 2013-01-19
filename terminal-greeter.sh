@@ -25,10 +25,14 @@ else
 	if [ "$cur_hour" -gt 6 ] && [ "$cur_hour" -lt 12 ]; then
 		$(espeak "Good morning!" 2>errors.log)
 	else 
-		if [ "$cur_hour" -ge 12 ] && [ "$cur_hour" -lt 20 ]; then
-			$(espeak "Good evening!" 2>errors.log)
-		else 
-			$(espeak "Good night!" 2>errors.log)
+		if [ "$cur_hour" -ge 12 ] && [ "$cur_hour" -lt 16 ]; then
+			$(espeak "Good afternoon!" 2>errors.log)
+		else
+			if [ "$cur_hour" -ge 16 ] && [ "$cur_hour" -lt 20 ]; then
+				$(espeak "Good evening!" 2>errors.log)
+			else 
+				$(espeak "Good night!" 2>errors.log)
+			fi
 		fi
 	fi
 fi
